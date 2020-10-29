@@ -12,30 +12,45 @@ var listaNumeriPc = [];
 
 for (var i = 0; i < 16; i++) {
   var numeriPc = genaratoreNumeriRandom(100);
-  listaNumeriPc.push(numeriPc);
-  console.log("i numeri del pc sono: " + numeriPc);
+
+  if (listaNumeriPc.indexOf(numeriPc) === -1) {
+    listaNumeriPc.push(numeriPc);
+  }
+
 }
+
+console.log(listaNumeriPc);
 
 // chiedo all'utente un numero, sempre diverso, compreso tra 1 e 100
-var numeriUguali = false;
-for (var i = 0; i < listaNumeriPc.length; i++) {
+var listaNumeriUtente = [];
+var puntiUtente = 0;
+
+for (var i = 0; i < 84; i++) {
   var numeriUtente = parseInt(prompt("inserisci un numero tra 1 e 100"));
-  console.log("i numeri dell'utente sono: " + numeriUtente);
 
-  if (numeriUtente === listaNumeriPc[i]) {
-    numeriUguali = true;
+  // se il numero inserito dall'utente non è ancora stao inserito allora aggiungilo alla lista
+  if (listaNumeriUtente.indexOf(numeriUtente) === -1) {
+    listaNumeriUtente.push(numeriUtente);
+
+  // altrimente non aggiungerlo e compare un messaggo di avviso
+  } else {
+    console.log("ha gia inserito questo numero");
   }
+
+  console.log(listaNumeriUtente);
+
+
+  // se il numero inserito dall'utente è tra quelli generati dal pc finisce la partita
+  if (listaNumeriPc.indexOf(numeriUtente) !== -1) {
+    console.log("sei esploso");
+
+  // altrimenti incrementi il punteggio dell'utente
+  } else {
+    puntiUtente++;
+  }
+
+  console.log(puntiUtente);
 }
-
-if (numeriUguali === true) {
-  console.log("HAI PERSO");
-} else {
-  console.log("HAI VINTO");
-}
-
-// se il numero inserito dall'utente è tra quelli generati dal pc finisce la partita
-
-// stampare il punteggio, pari al quantitativo di numeri consentiti inseriti dll'utente
 
 
 // funzioni
