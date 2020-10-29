@@ -4,3 +4,29 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body{
+  font-family: sans-serif;
+}
+
+/* regole container */
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #7F5217;
+}
+
+/* regole box */
+.container .box{
+  text-align: center;
+  background-color: #fff;
+  padding: 20px 40px;
+  border-radius: 20px;
+}
+
+.container .box h2{
+  margin: 10px 0;
+}
